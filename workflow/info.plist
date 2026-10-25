@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.psagap.physicscalc</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>3E0C6C7A-2D52-4B0B-9A44-6A1E5B8D0A01</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7B1F9D52-84C3-4E3A-B6D0-1C2F7A9E0A02</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C4A8E613-0F5D-4C79-8E21-5D3B9A7F0A03</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Paste into the front app</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>7B1F9D52-84C3-4E3A-B6D0-1C2F7A9E0A02</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Copy expression = result</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Pablo Sanchez</string>
+	<key>description</key>
+	<string>Calculator with unit algebra, physics constants and uncertainty propagation</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Physics Calc</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:keyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Calculating...</string>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>calc.sh</string>
+				<key>skipuniversalaction</key>
+				<true/>
+				<key>subtext</key>
+				<string>Units, constants, uncertainties. Try: 5 N * 2 m to J</string>
+				<key>title</key>
+				<string>Physics Calc</string>
+				<key>type</key>
+				<integer>8</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>3E0C6C7A-2D52-4B0B-9A44-6A1E5B8D0A01</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>7B1F9D52-84C3-4E3A-B6D0-1C2F7A9E0A02</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>C4A8E613-0F5D-4C79-8E21-5D3B9A7F0A03</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Calculate with real units, physics constants, and measurement uncertainty, powered by [Qalculate](https://qalculate.github.io).
+
+## Setup
+
+Install Qalculate's command-line tool with [Homebrew](https://brew.sh):
+
+```
+brew install libqalculate
+```
+
+If it is missing, the workflow shows a result to copy the install command.
+
+## Usage
+
+Type the keyword (default: `calc`) followed by an expression.
+
+* &lt;kbd&gt;↩&lt;/kbd&gt; Copy the result.
+* &lt;kbd&gt;⌘&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Paste the result into the frontmost app.
+* &lt;kbd&gt;⌥&lt;/kbd&gt;&lt;kbd&gt;↩&lt;/kbd&gt; Copy the full line (expression = result).
+
+Examples:
+
+```
+calc 10 m / 2 s                                  → 5 m/s
+calc 5 N * 2 m to J                              → 10 J
+calc 60 mph to m/s                               → 26.8224 m/s
+calc planck * c / (500 nm) to eV                 → 2.479683969 eV
+calc (5.0+/-0.1) m / (2.00+/-0.05) s             → 2.500±0.080 m/s
+calc G * 5.972e24 kg / (6.371e6 m)^2             → 9.820 m/s²
+calc solve(x^2 + 2x = 8)                         → [2, -4]
+```
+
+Units simplify automatically (N·m → J, V/Ω → A). Convert with `to`, e.g. `0.0063 m to mm`.
+
+Constants by name: `c`, `G`, `planck`, `hbar`, `k_B`, `N_A`, `q_e`, `m_e`, `g0`, `epsilon_0`, `mu_0`. A bare `e` is Euler's number.
+
+Write uncertainty as `(value+/-error)` and it propagates through the calculation.
+
+Trigonometry uses degrees (`sin(90) = 1`); add `rad` for radians.
+
+## Configuration
+
+Set the keyword in the [Workflow Configuration](https://www.alfredapp.com/help/workflows/user-configuration/). Results ignore your personal `qalc.cfg`, so they are consistent.
+</string>
+	<key>uidata</key>
+	<dict>
+		<key>3E0C6C7A-2D52-4B0B-9A44-6A1E5B8D0A01</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>6</integer>
+			<key>note</key>
+			<string>Physics Calc Script Filter</string>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>7B1F9D52-84C3-4E3A-B6D0-1C2F7A9E0A02</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>6</integer>
+			<key>note</key>
+			<string>Copy</string>
+			<key>xpos</key>
+			<integer>380</integer>
+			<key>ypos</key>
+			<integer>60</integer>
+		</dict>
+		<key>C4A8E613-0F5D-4C79-8E21-5D3B9A7F0A03</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>6</integer>
+			<key>note</key>
+			<string>Paste (autopaste)</string>
+			<key>xpos</key>
+			<integer>380</integer>
+			<key>ypos</key>
+			<integer>220</integer>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>calc</string>
+				<key>placeholder</key>
+				<string>calc</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Keyword to start a calculation</string>
+			<key>label</key>
+			<string>Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/psagap/alfred-physics-calc</string>
+</dict>
+</plist>
